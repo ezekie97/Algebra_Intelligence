@@ -2,7 +2,7 @@
  * Created by kotanjai on 10/31/2015.
  */
 
-function evaluateExpressionLinearTemplate() {
+function EvaluateExpressionLinearTemplate() {
     /**
      * Generates a linear equation question.
      * The expression is of the form Ax + Bx + C
@@ -13,19 +13,19 @@ function evaluateExpressionLinearTemplate() {
 
         var xCoefficient = random.generateRandomInteger(-20, 20);
         //Test to check if random generated a 0 for the xCoefficient, if it did regenerate another number
-        if(xCoefficient == 0){
+        if (xCoefficient == 0) {
             xCoefficient = random.generateRandomInteger(-20, 20);
         }
 
         var yCoefficient = random.generateRandomInteger(-20, 20);
         //Test to check if random generated a 0 for the constant, if it did regenerate another number
-        if(yCoefficient == 0){
+        if (yCoefficient == 0) {
             yCoefficient = random.generateRandomInteger(-20, 20);
         }
 
-        }
+
         var zCoefficient = random.generateRandomInteger(-20, 20);
-        if(zCoefficient == 0){
+        if (zCoefficient == 0) {
             zCoefficient = random.generateRandomInteger(-20, 20);
         }
 
@@ -67,21 +67,21 @@ function evaluateExpressionLinearTemplate() {
         denominator += xCoefficient + yCoefficient;
 
         //If the constant is negative move to right side and make positive
-        if(zCoefficient < 0){
+        if (zCoefficient < 0) {
             numerator += Math.abs(zCoefficient);
         }
         //Otherwise constant is positive and becomes negative on right side
-        else{
-            if(zCoefficient > 0){
+        else {
+            if (zCoefficient > 0) {
                 numerator += -zCoefficient;
             }
         }
         //Calculation for correct answer rounded to 2 decimal places
-        var correctAnswer = (numerator/denominator).toFixed(2);
+        var correctAnswer = (numerator / denominator).toFixed(2);
         //Calculations for incorrect answers for multiple choice based on correct answer also rounded to 2 decimals
         var incorrectAnswerA = correctAnswer * (random.generateRandomInteger(-10, 10).toFixed(2));
-        var incorrectAnswerB = correctAnswer * (random.generateRandomInteger(-15, 15).toFixed(2));
-        var incorrectAnswerC = Math.abs(correctAnswer) * (random.generateRandomInteger(-20, 20).toFixed(2));
+        var incorrectAnswerB = correctAnswer * (random.generateRandomInteger(-5, 5).toFixed(2));
+        var incorrectAnswerC = Math.abs(correctAnswer) * (random.generateRandomInteger(-5, 5).toFixed(2));
 
         var correctAnswerPos = random.generateRandomInteger(0, 4); //0 - 3 (a - d)
         switch (correctAnswerPos) {

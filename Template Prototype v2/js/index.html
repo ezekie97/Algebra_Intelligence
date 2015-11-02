@@ -7,6 +7,7 @@
     <script type="text/javascript" src="templates/quadraticRootTemplate.js"></script>
     <script type="text/javascript" src="templates/evaluateExpressionAddTemplate.js"></script>
     <script type="text/javascript" src="templates/evaluateExpressionSubtractTemplate.js"></script>
+    <script type="text/javascript" src="templates/evaluateExpressionLinearTemplate.js"></script>
     <title></title>
 </head>
 <body>
@@ -21,6 +22,8 @@
     qt = new EvaluateExpressionAddTemplate();
     templates.push(qt);
     qt = new EvaluateExpressionSubtractTemplate();
+    templates.push(qt);
+    qt = new EvaluateExpressionLinearTemplate();
     templates.push(qt);
     var q = templates[random.generateRandomInteger(0,templates.length)].instantiateQuestion();
     q.display();
