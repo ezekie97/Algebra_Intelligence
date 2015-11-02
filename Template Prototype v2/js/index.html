@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="random.js"></script>
+    <script type="text/javascript" src="question.js"></script>
+    <script type="text/javascript" src="templates/quadraticRootTemplate.js"></script>
+    <script type="text/javascript" src="templates/evaluateExpressionAddTemplate.js"></script>
+    <script type="text/javascript" src="templates/evaluateExpressionSubtractTemplate.js"></script>
+    <title></title>
+</head>
+<body>
+<div id="question">
+    Question goes here....
+</div>
+<script type="text/javascript">
+    var templates = [];
+    var random = new Random();
+    var qt = new QuadraticRootTemplate();
+    templates.push(qt);
+    qt = new EvaluateExpressionAddTemplate();
+    templates.push(qt);
+    qt = new EvaluateExpressionSubtractTemplate();
+    templates.push(qt);
+    var q = templates[random.generateRandomInteger(0,templates.length)].instantiateQuestion();
+    q.display();
+</script>
+</body>
+</html>

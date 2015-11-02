@@ -1,0 +1,52 @@
+Since JavaScript doesn't have a Java like interface we can't really use 'implement'. However, JavaScript is heavily
+dynamically typed and uses duck typing. We can use this to our advantage and have all our templates implement the
+following:
+
+
+// The following is for an addTemplate which takes the sum  of two numbers.
+
+/**
+*   A template which instantiates addition questions (2 numbers).
+*/
+function addTemplate(){
+
+    this.instantiateQuestion(){ //skill level eventually a parameter.
+        var random = new Random()
+        var text = "Find the sum of ";
+        var addend = random.getRandomInteger(0,10);
+        var addend2 = random.getRandomInteger(0,10);
+        // question text.
+        var qText = generateQuestionText(addend,addend2);
+        var qAnswerInfo = generateQuestionAnswerInfo(addend, addend2);
+        var qAnswers = qAnswerInfo[0];
+        var qCorrectAnswerPosition = qAnswerInfo[1];
+        return new Question(qText, qAnswers, qCorrectAnswerPosition)
+    };
+
+
+    // Okay so this is where things get a little strange. You might ask, but Bill aren't we only using instantiateQuestion()
+    // for the Question Templates. The answer is technically yes. generateText and generateAnswerInfo are private helper
+    // functions that change slightly based on each template. These functions could just as easily been placed in the
+    // instantiateQuestion() function (leaving only that function as we first planned), but I put them in their own helper
+    // methods to make the separate the nitty-gritty from the less complicated mumbo-jumbo. Makes the code more
+    // readable.
+
+    var generateText = function(){//function that generates the string addend "+" addend2";}
+    var generateAnswerInfo = function() {//function that returns an array of size two. The first item is the four multiple choice
+        //answers. The second item is the position of the correct Answer. See question.js to see how question operates.
+}
+
+
+// In a quiz we could instantiate a question as follows.
+// Assume addTemplate is in position i in a list of templates called 'templates'.
+
+var question = templates[i].instantiateQuestion();
+question.display();
+
+
+// The current index.html swaps between three question types: quadratic roots, addition evaluation , and subtraction evaluation.
+// Note that if you wanted to add another template you would ONLY NEED the instantiateQuestion() function filled out and
+// that's it. Oh and add your template to index.html too. That way everything works.
+
+
+

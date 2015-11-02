@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src = "src/arrayEquals.js"></script>
+  <script src = "src/term.js" ></script>
+  <script src = "src/varInfo.js"></script>
+  <script src = "src/polynomial.js"></script>
+  <script src = "src/abs_polynomial.js"></script>
+  <script src = "src/power_polynomial.js"></script>
+  <script src = "src/question.js"></script>
+  <script src = "src/Tests/prototype.js"></script>
+    <title></title>
+</head>
+<body onload = "display();">
+  <div class="container">
+    <div class="jumbotron">
+      <p id="conditions">
+        Evaluate each of the following expressions below. For each expression: <br>
+        x = 2 <br>
+        y = 3 <br>
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Addition Problem</h3>
+        <p id="prob_add"></p>
+        <button id ="add_button" onclick="solveAdd();">Solve</button>
+      </div>
+
+
+      <div class="col-sm-4">
+        <h3>Subtraction Problem</h3>
+        <p id="prob_sub"></p>
+        <button id ="sub_button" onclick="solveSub();">Solve</button>
+      </div>
+
+
+      <div class="col-sm-4">
+        <h3>Mult Problem</h3>
+        <p id="prob_mult"></p>
+        <button id ="mult_button" onclick="solveMult();">Solve</button>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Division Problem</h3>
+        <p id="prob_div"></p>
+        <button id ="div_button" onclick="solveDiv();">Solve</button>
+      </div>
+      <div class="col-sm-4">
+        <h3>Absolute Value Problem</h3>
+        <p id="prob_abs"></p>
+        <button id ="abs_button" onclick="solveAbs();">Solve</button>
+      </div>
+      <div class="col-sm-4">
+        <h3>Polynomial Power Problem</h3>
+        <p id="prob_power"></p>
+        <button id ="power_button" onclick="solvePower();">Solve</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Mixed Polynomial Problem</h3>
+        <p id="prob_mixed"></p>
+        <button id ="mixed_button" onclick="solveMixed();">Solve</button>
+      </div>
+      <div class="col-sm-4">
+        <h3>Comparison Problem</h3>
+        <p id="prob_comp"></p>
+        <button id ="comp_button" onclick="solveComp();">Solve</button>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>

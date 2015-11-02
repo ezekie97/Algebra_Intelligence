@@ -1,0 +1,7 @@
+So far I've implemented the quadratic root, addition, subtraction, multiplication, and division templates.
+To Implement them go to index.html and switch the file name of the <script> tag that currently has "js/divide.js". Remember all of
+these files are located in the js folder.
+
+
+I also created the Random.js and Decimal.js files as they are pretty commonly used in each template. index.html uses them 
+so it should import all their functions.
