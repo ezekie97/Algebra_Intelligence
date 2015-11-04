@@ -28,7 +28,7 @@ function Random(){
      * @returns {number} a random decimal between x (inclusive) and y (exclusive).
      */
     this.generateRandomDecimal = function(x,y,round){
-        return parseFloat((Math.random()*(y-x) + x).toFixed(round));
+        return parseFloat((Math.random()*((y+1)-x) + x).toFixed(round));
     };
 
     /**
