@@ -5,32 +5,22 @@
 function SolveLinearEquationTemplate() {
     /**
      * Generates a linear equation question.
-     * The expression is of the form Ax + Bx + C
+     * The expression is of the form Ax + Bx + C = 0.
      * @returns {Question} The evaluate linear equation quiz question.
      */
     this.instantiateQuestion = function () {
         var random = new Random();
 
-        var xCoefficient = random.generateRandomInteger(-20, 20);
-        //Test to check if random generated a 0 for the xCoefficient, if it did regenerate another number
-        if (xCoefficient == 0) {
-            xCoefficient = random.generateRandomInteger(-20, 20);
+        // generate values from -20 to 20, excluding 0.
+        var A = random.generateRandomNonZeroInteger(21);
+        var B = random.generateRandomNonZeroInteger(21);
+        var C = random.generateRandomNonZeroInteger(21);
+        if(A + B === 0){
+          A += random.generateRandomNonZeroInteger(5);
         }
 
-        var yCoefficient = random.generateRandomInteger(-20, 20);
-        //Test to check if random generated a 0 for the constant, if it did regenerate another number
-        if (yCoefficient == 0) {
-            yCoefficient = random.generateRandomInteger(-20, 20);
-        }
-
-
-        var zCoefficient = random.generateRandomInteger(-20, 20);
-        if (zCoefficient == 0) {
-            zCoefficient = random.generateRandomInteger(-20, 20);
-        }
-
-        var qText = generateText(xCoefficient, yCoefficient, zCoefficient);
-        var qAnswerInfo = generateAnswerInfo(xCoefficient, yCoefficient, zCoefficient);
+        var qText = generateText(A, B, C);
+        var qAnswerInfo = generateAnswerInfo(A, B, C);
         var qAnswers = qAnswerInfo[0];
         var qCorrectAnswerPos = qAnswerInfo[1];
         return new Question(qText, qAnswers, qCorrectAnswerPos);
@@ -38,50 +28,51 @@ function SolveLinearEquationTemplate() {
 
     /**
      * Generate the text for solving a linear equation question.
-     * @param xCoefficient The coefficient of first x variable.
-     * @param yCoefficient the coefficient of second x variable.
-     * @param zCoefficient The coefficient of the constant.
+     * @param a The value of A, the coefficient of the first x.
+     * @param b The value of B, the coefficient of the first x.
+     * @param c The value of the constant.
      * @return {String} the question text.
      */
 
-    var generateText = function (xCoefficient, yCoefficient, zCoefficient) {
-        var text = "Solve for x:   ";
-        text += xCoefficient + "x + " + yCoefficient + "x + " + zCoefficient + " = 0 ";
+    var generateText = function (a, b, c) {
+        var text = "Solve for x: <br> &nbsp&nbsp&nbsp&nbsp";
+        text += a + "x + " + b + "x + " + c + " = 0 ";
         return text;
     };
 
     /**
      * Generate 4 Multiple Choice Answers.
-     * @param xCoefficient The coefficient of x.
-     * @param yCoefficient the coefficient of second x variable.
-     * @param zCoefficient the value of the constant.
+     * @param a The coefficient of x.
+     * @param b the coefficient of second x variable.
+     * @param c the value of the constant.
      * @return {Array} A mixed array of two items . The first holds the
      *      multiple choice answers. The second holds the position of the correct answer.
      */
-    var generateAnswerInfo = function (xCoefficient, yCoefficient, zCoefficient) {
+    var generateAnswerInfo = function (a, b, c) {
         var random = new Random();
         var denominator = 0;
         var numerator = 0;
 
-        //Combine like terms xCoefficient added to yCoefficient and assign to denominator
-        denominator += xCoefficient + yCoefficient;
+        //Combine like terms a added to b and assign to denominator
+        denominator += a + b;
 
         //If the constant is negative move to right side and make positive
-        if (zCoefficient < 0) {
-            numerator += Math.abs(zCoefficient);
+        if (c < 0) {
+            numerator += Math.abs(c);
         }
         //Otherwise constant is positive and becomes negative on right side
         else {
-            if (zCoefficient > 0) {
-                numerator += -zCoefficient;
+            if (c > 0) {
+                numerator += -c;
             }
         }
         //Calculation for correct answer rounded to 2 decimal places
-        var correctAnswer = (numerator / denominator).toFixed(2);
+        var correctAnswer = (numerator / denominator);
         //Calculations for incorrect answers for multiple choice based on correct answer also rounded to 2 decimals
-        var incorrectAnswerA = correctAnswer * (random.generateRandomInteger(-10, 10).toFixed(2));
-        var incorrectAnswerB = correctAnswer * (random.generateRandomInteger(-5, 5).toFixed(2));
-        var incorrectAnswerC = Math.abs(correctAnswer) * (random.generateRandomInteger(-5, 5).toFixed(2));
+        var incorrectAnswerA = (correctAnswer * (random.generateRandomInteger(-10, 10))).toFixed(2);
+        var incorrectAnswerB = (correctAnswer * (random.generateRandomInteger(-5, 5))).toFixed(2);
+        var incorrectAnswerC = (Math.abs(correctAnswer) * (random.generateRandomInteger(-5, 5))).toFixed(2);
+        correctAnswer = correctAnswer.toFixed(2);
 
         var correctAnswerPos = random.generateRandomInteger(0, 4); //0 - 3 (a - d)
         switch (correctAnswerPos) {
