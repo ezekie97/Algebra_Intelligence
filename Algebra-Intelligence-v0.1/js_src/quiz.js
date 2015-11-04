@@ -107,12 +107,12 @@ function Quiz(numQuestions){
             htmlString += "<input type='radio' name='"+qRadioName+"' value='" + answerString + "'>"+answerString + "<br>";
         }
         return htmlString;
-    }
+    };
 
     this.getFinishedQuizHtmlString = function(){
         var htmlString = "";
         for(var i = 0; i < this.questions.length; i++){
-            htmlString+="<div class='resultQuestion'>"
+            htmlString+="<div class='resultQuestion'>";
             var currentQuestion = this.questions[i];
             var currentResponse = this.responses[i];
             var wasCorrect = currentQuestion.checkAnswer(currentResponse);
