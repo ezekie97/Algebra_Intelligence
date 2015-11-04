@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" type = "text/css" href="style.css">
+    <script type="text/javascript" src="../js_src/cookies.js"></script>
+    <script type="text/javascript" src="../js_src/pageParts.js"></script>
+    <script type="text/javascript" src="../js_src/validateLogin.js"></script>
+    <title>Algebra Intelligence | Login</title>
+</head>
+<body>
+<!-- Check if user is logged in before anything else -->
+<!-- Redirect to index page if they are logged in, they shouldn't be here.. -->
+<script type="text/javascript">
+  if(checkCookie()) {
+    window.location.replace("../html/index.html");
+  }
+</script>
+
+<!-- Wrapper -->
+<div class="wrapper">
+  <div class="logo-area">
+  </div>
+  <div class="menuBar">
+  </div>
+  <div class="main-login">
+    <div class="login-area">
+      <form name = "loginForm"  method="post" action="index.html">
+        <p><input type="text" name="user" value="" placeholder="Username"></p>
+        <p><input type="password" name="password" value="" placeholder="Password"></p>
+        <p><input type="button" value="Login" onclick="validateLogin();"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+</div>
+
+<!-- Logo Area, Menu, and Footer from Javascript -->
+<script type="text/javascript">
+  loadAll();
+</script>
+</body>
+</html>

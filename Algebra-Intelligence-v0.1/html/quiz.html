@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" type = "text/css" href="style.css">
+    <script type="text/javascript" src="../js_src/cookies.js"></script>
+    <script type="text/javascript" src="../js_src/pageParts.js"></script>
+    <script type="text/javascript" src="../js_src/random.js"></script>
+    <script type="text/javascript" src="../js_src/question.js"></script>
+    <script type="text/javascript" src="../js_src/quiz.js"></script>
+    <script type="text/javascript" src="../js_src/templates/quadraticRootTemplate.js"></script>
+    <script type="text/javascript" src="../js_src/templates/evaluateExpressionAddTemplate.js"></script>
+    <script type="text/javascript" src="../js_src/templates/evaluateExpressionSubtractTemplate.js"></script>
+    <script type="text/javascript" src="../js_src/templates/solveLinearEquationTemplate.js"></script>
+
+    <title>Algebra Intelligence | Quiz</title>
+</head>
+<body>
+<!-- Check if user is logged in before anything else -->
+<!-- Redirect to login page if they need to log in. -->
+<script type="text/javascript">
+  if(!checkCookie()) {
+    window.location.replace("../html/login.html");
+  }
+</script>
+
+<!-- Wrapper -->
+<div class="wrapper">
+  <div class="logo-area">
+  </div>
+  <div class="menuBar">
+  </div>
+  <div class="main">
+    <div class="main-quiz">
+      <div id="quiz">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+</div>
+
+<!-- Logo Area, Menu, and Footer from Javascript -->
+<script type="text/javascript">
+  loadAll();
+  var quiz = new Quiz(5);
+  quiz.generate();
+  document.getElementById("quiz").innerHTML = quiz.getHtmlString();
+  var nextPage = 'quizDone.html';
+  var checkButtonHtmlString = "<input type='button' value='Complete Quiz' onclick='quiz.getUserAnswers(); " +
+    "nextPage();'>";
+  document.getElementById("quiz").innerHTML += "<p>" + checkButtonHtmlString + "</p>";
+  var nextPage = function(){
+    window.localStorage.setItem("quiz",JSON.stringify(quiz));
+    window.location.replace('quizComplete.html');
+  };
+</script>
+
+</body>
+</html>
