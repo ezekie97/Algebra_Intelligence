@@ -57,26 +57,27 @@ function Quiz(numQuestions){
         var random = new Random();
         var templates = loadTemplates();
         for(var i = 0; i < this.numQuestions ; i++){
-            randInt = random.generateRandomInteger(0,templates.length);
-            this.questions.push(templates[randInt].instantiateQuestion());
+            randInt = random.generateRandomInteger(0,templates.length-1);
+            this.questions.push(templates[randInt].instantiateQuestion(5));
         }
     };
 
     /**
      * Populate the array of templates.
      * NEEDS TO BE HOOKED UP TO DATABASE.
+     * LOADS TEMPLATES FROM SRC FOR NOW.
      * @return {Array} A list of question templates.
      */
     var loadTemplates = function(){
         var templates = [];
         var qt = new QuadraticRootTemplate();
         templates.push(qt);
-        qt = new EvaluateExpressionAddTemplate();
-        templates.push(qt);
-        qt = new EvaluateExpressionSubtractTemplate();
-        templates.push(qt);
-        qt = new SolveLinearEquationTemplate();
-        templates.push(qt);
+        //qt = new EvaluateExpressionAddTemplate();
+       // templates.push(qt);
+        //qt = new EvaluateExpressionSubtractTemplate();
+        //templates.push(qt);
+        //qt = new SolveLinearEquationTemplate();
+        //templates.push(qt);
         return templates;
     };
 

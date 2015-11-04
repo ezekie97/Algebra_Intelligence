@@ -21,6 +21,33 @@ function Random(){
         return result;
     }
 
+  /**
+   * Generate a non-zero integer within a range of values.
+   * @param y The absolute value of the highest and lowest possible choices.
+   * @returns {number} any number between -x and -y  or  x and y inclusive that is not 0.
+   */
+  this.generateRandomNonZeroIntegerInRange = function(x,y){
+    var result = this.generateRandomInteger(x,y);
+    if(this.generateRandomBoolean()){
+      return -result;
+    }
+    return result;
+  }
+
+  /**
+   * Generate a non-zero decimal.
+   * @param y The absolute value of the highest and lowest possible choices.
+   * @param round The number of decimal places tobe rounded to.
+   * @returns {number} any number between -y  and  y inclusive that is not 0.
+   */
+  this.generateRandomNonZeroDecimal = function(y,round){
+    var result = this.generateRandomDecimal(1,y,round);
+    if(this.generateRandomBoolean()){
+      return -result;
+    }
+    return result;
+  }
+
     /**
      * @param x the lower value
      * @param y the higher value

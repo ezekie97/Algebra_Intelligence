@@ -6,6 +6,7 @@
     <script type="text/javascript" src="../js_src/cookies.js"></script>
     <script type="text/javascript" src="../js_src/pageParts.js"></script>
     <script type="text/javascript" src="../js_src/random.js"></script>
+    <script type="text/javascript" src="../js_src/factors.js"></script>
     <script type="text/javascript" src="../js_src/question.js"></script>
     <script type="text/javascript" src="../js_src/quiz.js"></script>
     <script type="text/javascript" src="../js_src/templates/quadraticRootTemplate.js"></script>
@@ -45,7 +46,7 @@
 <!-- Logo Area, Menu, and Footer from Javascript -->
 <script type="text/javascript">
   loadAll();
-  var quiz = new Quiz(5);
+  var quiz = new Quiz(10);
   quiz.generate();
   document.getElementById("quiz").innerHTML = quiz.getHtmlString();
   var nextPage = 'quizDone.html';
