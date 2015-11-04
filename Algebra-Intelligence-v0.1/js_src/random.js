@@ -25,7 +25,7 @@ function Random(){
      * @param x the lower value
      * @param y the higher value
      * @param round the number of decimal places to round to.
-     * @returns {number} a random decimal between x (inclusive) and y (exclusive).
+     * @returns {number} a random decimal between x (inclusive) and y (inclusive).
      */
     this.generateRandomDecimal = function(x,y,round){
         return parseFloat((Math.random()*((y+1)-x) + x).toFixed(round));
