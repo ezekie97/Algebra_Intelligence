@@ -3,13 +3,49 @@
  * Holds all of the questions.
  * All references to html should match with index.html (quiz.html in actual project).
  * In quiz.html the variable 'quiz' will hold a quiz.
- * @param numQuestions the number of questions in this quiz.
+ * @param numQuestions The number of questions in this quiz.
  * @constructor
  */
 function Quiz(numQuestions){
     this.numQuestions = numQuestions;
     this.questions=[];
     this.responses =[]; // user responses, matches with the questions.
+
+
+    /**
+     * @returns {Question|Array} The questions of this quiz.
+     */
+    this.getQuestions = function(){
+      return this.questions;
+    };
+
+    /**
+     * @returns {*|Array} The user responses for this quiz.
+     */
+    this.getResponses = function(){
+      return this.responses;
+    };
+
+    /**
+     * @returns {Number} the number of questions in this quiz.
+     */
+    this.getNumberOfQuestions = function(){
+      return this.numQuestions;
+    };
+
+    /**
+     * @returns{String|Array} the categories used in this quiz.
+     */
+    this.getCategories = function(){
+      var categories = [];
+      for(var i = 0; i < numQuestions; i++){
+        var category = this.questions[i].getCategory();
+        if(categories.indexOf(category) === -1){
+          categories.push(category);
+        }
+      }
+      return categories;
+    };
 
     /**
      * Take user responses for a quiz and store them in the
@@ -36,19 +72,6 @@ function Quiz(numQuestions){
     };
 
     /**
-     * @returns {number} The user's grade for this quiz (# correct / total) * 100.
-     */
-    this.grade = function(){
-        var total = 0;
-        for(var i = 0; i < this.numQuestions; i++){
-            var question = this.questions[i];
-            var response = this.responses[i];
-            total+=question.checkAnswer(response);
-        }
-        return (total/this.numQuestions) * 100;
-    };
-
-    /**
      * Populate the array of questions using questions randomly chosen
      * from a list of question templates.
      */
@@ -63,27 +86,10 @@ function Quiz(numQuestions){
         }
     };
 
-    /**
-     * Populate the array of templates.
-     * NEEDS TO BE HOOKED UP TO DATABASE.
-     * LOADS TEMPLATES FROM SRC FOR NOW.
-     * @return {Array} A list of question templates.
-     */
-    var loadTemplates = function(){
-        var templates = [];
-        var qt = new QuadraticRootTemplate();
-        templates.push(qt);
-        qt = new EvaluateExpressionAddTemplate();
-        templates.push(qt);
-        qt = new EvaluateExpressionSubtractTemplate();
-        templates.push(qt);
-        qt = new SolveLinearEquationTemplate();
-        templates.push(qt);
-        return templates;
-    };
+
 
     /**
-     * @returns {String} A string of html code used to display a quiz.
+     * @returns {String} A string of HTML code used to display a quiz.
      */
     this.getHtmlString = function(){
         var htmlString = "";
@@ -94,23 +100,9 @@ function Quiz(numQuestions){
     };
 
     /**
-     * @param question A question object.
-     * @param qNumber The question number, used to give each question's radio buttons
-     *      unique values for their 'name' attribute.
-     * @returns {String} A string of html code used to display a question.
+     * @returns {String} A string of HTML code used to display questions
+     *  of a quiz after the quiz is completed.
      */
-    var getQuestionHtmlString = function(question, qNumber){
-        var htmlString = question.getText() + "</p>";
-        var qRadioName = "q" + qNumber; // name used for this questions radio buttons.
-        var answers = question.getAnswers();
-        //generate radio buttons
-        for(var i = 0; i < answers.length; i++ ){
-            var answerString = answers[i];
-            htmlString += "<input type='radio' name='"+qRadioName+"' value='" + answerString + "'>"+answerString + "<br>";
-        }
-        return htmlString;
-    };
-
     this.getFinishedQuizHtmlString = function(){
         var htmlString = "";
         for(var i = 0; i < this.questions.length; i++){
@@ -134,5 +126,42 @@ function Quiz(numQuestions){
             htmlString += "</div><hr>";
         }
         return htmlString;
-    }
+    };
+
+    /**
+     * Populate the array of templates.
+     * NEEDS TO BE HOOKED UP TO DATABASE.
+     * LOADS TEMPLATES FROM SRC FOR NOW.
+     * @return {*|Array} A list of question templates.
+     */
+    var loadTemplates = function(){
+      var templates = [];
+      var qt = new QuadraticRootTemplate();
+      //templates.push(qt);
+      //qt = new EvaluateExpressionAddTemplate();
+      //templates.push(qt);
+      //qt = new EvaluateExpressionSubtractTemplate();
+      //templates.push(qt);
+      qt = new SolveLinearEquationTemplate();
+      templates.push(qt);
+      return templates;
+    };
+
+    /**
+     * @param question A question object.
+     * @param qNumber The question number, used to give each question's radio buttons
+     *      unique values for their 'name' attribute.
+     * @returns {String} A string of html code used to display a question.
+     */
+    var getQuestionHtmlString = function(question, qNumber){
+      var htmlString = question.getText() + "</p>";
+      var qRadioName = "q" + qNumber; // name used for this questions radio buttons.
+      var answers = question.getAnswers();
+      //generate radio buttons
+      for(var i = 0; i < answers.length; i++ ){
+        var answerString = answers[i];
+        htmlString += "<input type='radio' name='"+qRadioName+"' value='" + answerString + "'>"+answerString + "<br>";
+      }
+      return htmlString;
+    };
 }

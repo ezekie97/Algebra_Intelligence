@@ -2,7 +2,7 @@
  * Determine all factors of a number or a certain amount if necessary.
  * @param num  The number, must be positive.
  * @param exclude An array of numbers to exclude from factoring.
- * @returns {*[]} An array of arrays that contains two factors of the number.
+ * @returns {Number|Array} An array of arrays that contains two factors of the number.
  */
 var factorsOf = function(num,limit,exclude){
   var factors = [1]

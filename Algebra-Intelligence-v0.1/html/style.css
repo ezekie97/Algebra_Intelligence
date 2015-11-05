@@ -85,7 +85,7 @@ body, html{
   padding:10px 0;
 }
 
-.main-quiz-results h1{
+.main-quiz-results h1,h2{
   text-align:center;
 }
 

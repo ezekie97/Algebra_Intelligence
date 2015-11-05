@@ -1,19 +1,17 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <link rel = "stylesheet" type = "text/css" href="style.css">
+  <!-- Load Javascript Files -->
   <script type="text/javascript" src="../js_src/cookies.js"></script>
   <script type="text/javascript" src="../js_src/pageParts.js"></script>
   <script type="text/javascript" src="../js_src/random.js"></script>
   <script type="text/javascript" src="../js_src/question.js"></script>
   <script type="text/javascript" src="../js_src/quiz.js"></script>
+  <script type="text/javascript" src="../js_src/grader.js"></script>
+  <script type="text/javascript" src ="../js_src/displayQuizResults.js"></script>
   <script type="text/javascript" src="../js_src/jsonToQuiz.js"></script>
-
   <title>Algebra Intelligence | Quiz</title>
 </head>
 <body>
@@ -44,9 +42,7 @@
 <!-- Logo Area, Menu, and Footer from Javascript -->
 <script type="text/javascript">
   loadAll();
-  var quiz = jsonToQuiz(window.localStorage.getItem("quiz"));
-  document.getElementById("quiz-results").innerHTML += "<h1>Final Score: " + quiz.grade().toFixed(0) +"%</h1>" +
-    quiz.getFinishedQuizHtmlString();
+  document.getElementById("quiz-results").innerHTML += displayQuizResults();
 </script>
 </body>
 </html>

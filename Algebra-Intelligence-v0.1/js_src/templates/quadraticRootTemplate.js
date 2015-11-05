@@ -5,9 +5,9 @@
 function QuadraticRootTemplate() {
     this.category = "quadratic";
 
-  /**
-   * @returns {String} the category of this template, and therefore its questions.
-   */
+    /**
+     * @returns {String} the category of this template, and therefore its questions.
+     */
     this.getCategory = function(){
       return this.category;
     };
@@ -35,13 +35,13 @@ function QuadraticRootTemplate() {
         return new Question(qText,qAnswers,qCorrectAnswerPos,this.category);
     };
 
-  /**
-   * Generate values specific to the quadratic root template based
-   *  on the user's skill level in this subject.
-   * @param skillLevel The users skill level.
-   * @returns {Array} An array of the following: A value, B value, C value,
-   *     and two values for the Roots.
-   */
+    /**
+     * Generate values specific to the quadratic root template based
+     *  on the user's skill level in this subject.
+     * @param skillLevel The users skill level.
+     * @returns {Number|Array} An array of the following: A value, B value, C value,
+     *     and two values for the Roots.
+     */
     var generateTemplateComponents = function(skillLevel){
         var random = new Random();
         var R1; // root 1
@@ -84,12 +84,12 @@ function QuadraticRootTemplate() {
         return [A,B,C,R1,R2];
     };
 
-  /**
+    /**
    * Generate the text for a quadratic root question.
    * @param A The value of A.
    * @param B The value of B.
    * @param C The value of C.
-   * @returns {string}
+   * @returns {String}
    */
     var generateText = function(A,B,C){
         var text = "The quadratic equation ";
@@ -128,7 +128,7 @@ function QuadraticRootTemplate() {
      * @param R1 The first root
      * @param R2 The second root.
      * @param skillLevel The user's skill level, affects which answers show up.
-     * @return {Array} A mixed array of two items . The first holds the
+     * @return {*|Array} A mixed array of two items . The first holds the
      *      multiple choice answers. The second holds the position of the correct answer.
      */
     var generateAnswerInfo = function(A,C,R1,R2, skillLevel){
@@ -274,14 +274,14 @@ function QuadraticRootTemplate() {
         }
     };
 
-  /**
-   * Generate text for an answer.
-   * @param R1 The value of the first root.
-   * @param R2 The value of the second root.
-   * @param alterValueA Value to change R1 by.
-   * @param alterValueB Value to change R2 by.
-   * @returns {string} Text for an answer choice.
-   */
+    /**
+     * Generate text for an answer.
+     * @param R1 The value of the first root.
+     * @param R2 The value of the second root.
+     * @param alterValueA Value to change R1 by.
+     * @param alterValueB Value to change R2 by.
+     * @returns {String} Text for an answer choice.
+     */
     var generateAnswerText = function(R1,R2,alterValueA, alterValueB){
       if(R1 === R2){
           R1 += alterValueA;

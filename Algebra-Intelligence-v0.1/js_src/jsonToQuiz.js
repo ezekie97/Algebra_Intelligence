@@ -1,6 +1,9 @@
-// Convert json text to a quiz.
+/**
+ * Convert JSON text to a Quiz object.
+ * @param jsonText The jsonText
+ * @returns {Quiz} The quiz represented by the JSON text.
+ */
 var jsonToQuiz = function(jsonText){
-
     var obj = JSON.parse(jsonText);
     var numQuestions = obj.numQuestions;
     var responses = obj.responses;
@@ -13,11 +16,12 @@ var jsonToQuiz = function(jsonText){
         var text = q.text;
         var answers = q.answers;
         var correctAnswerPosition = q.correctAnswerPosition;
-        revertedQuestions.push(new Question(text, answers, correctAnswerPosition));
+        var category = q.category;
+        revertedQuestions.push(new Question(text, answers, correctAnswerPosition,category));
     }
 
     var quiz = new Quiz(numQuestions);
     quiz.questions = revertedQuestions;
     quiz.responses = responses;
     return quiz;
-}
+};

@@ -3,7 +3,6 @@
  * @constructor
  */
 function EvaluateExpressionAddTemplate() {
-
     this.category = "evalAdd";
 
     /**
@@ -12,6 +11,7 @@ function EvaluateExpressionAddTemplate() {
     this.getCategory = function(){
       return this.category;
     };
+
     /**
      * Generates an addition expression and its x and y values.
      * @param skillLevel The user's skill level.
@@ -31,12 +31,11 @@ function EvaluateExpressionAddTemplate() {
         return new Question(qText,qAnswers,qCorrectAnswerPos, this.category);
     };
 
-
     /**
      * Generate values specific to the evaluation addition template based
      *  on the user's skill level in this subject.
      * @param skillLevel The users skill level.
-     * @returns {Array} An array of the following: x value, x coefficient, y value,
+     * @returns {Number|Array} An array of the following: x value, x coefficient, y value,
      *     and y coefficient.
      */
     var generateTemplateComponents = function(skillLevel){
@@ -117,7 +116,7 @@ function EvaluateExpressionAddTemplate() {
      * @param y The value of y.
      * @param xCoefficient The coefficient of x.
      * @param yCoefficient the coefficient of y.
-     * @return {Array} A mixed array of two items . The first holds the
+     * @return {*|Array} A mixed array of two items . The first holds the
      *      multiple choice answers. The second holds the position of the correct answer.
      */
     var generateAnswerInfo = function(x,y,xCoefficient, yCoefficient){
@@ -135,15 +134,15 @@ function EvaluateExpressionAddTemplate() {
       var skill = parseInt(getCookie("evalAddSkill"));
       if(skill === 3){
         correctAnswer = correctAnswer.toFixed(1);
-        incorrectAnswerA = incorrectAnswerA.toFixed(1)
-        incorrectAnswerB = incorrectAnswerB.toFixed(1)
-        incorrectAnswerC = incorrectAnswerC.toFixed(1)
+        incorrectAnswerA = incorrectAnswerA.toFixed(1);
+        incorrectAnswerB = incorrectAnswerB.toFixed(1);
+        incorrectAnswerC = incorrectAnswerC.toFixed(1);
       }
       else if(skill > 3){
         correctAnswer = correctAnswer.toFixed(3);
-        incorrectAnswerA = incorrectAnswerA.toFixed(3)
-        incorrectAnswerB = incorrectAnswerB.toFixed(3)
-        incorrectAnswerC = incorrectAnswerC.toFixed(3)
+        incorrectAnswerA = incorrectAnswerA.toFixed(3);
+        incorrectAnswerB = incorrectAnswerB.toFixed(3);
+        incorrectAnswerC = incorrectAnswerC.toFixed(3);
       }
         var correctAnswerPos = random.generateRandomInteger(0,3); //0 - 3 (a - d)
         switch(correctAnswerPos){
