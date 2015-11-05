@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <link rel = "stylesheet" type = "text/css" href="style.css">
   <script type="text/javascript" src="../js_src/cookies.js"></script>
+  <script type="text/javascript" src="../js_src/showRatings.js"></script>
   <script type="text/javascript" src="../js_src/pageParts.js"></script>
   <title>Algebra Intelligence | Ratings</title>
 </head>
@@ -21,7 +22,7 @@
   </div>
   <div class="menuBar">
   </div>
-  <div class="main">
+  <div id ="ratings" class="main-ratings">
     <h1> Your Ratings</h1>
   </div>
 </div>
@@ -33,6 +34,8 @@
 <!-- Logo Area, Menu, and Footer from Javascript -->
 <script type="text/javascript">
   loadAll();
+  var ratings = showRatings();
+  document.getElementById("ratings").innerHTML += ratings;
 </script>
 
 </body>

@@ -11,7 +11,11 @@ var validateLogin = function(){
   var correctPassword = (password === defaultPassword);
 
   if(correctUser && correctPassword){
-    document.cookie = createCookie(username);
+    document.cookie = createCookie("username",username);
+    //hardcoded cookies.
+    document.cookie = createCookie("quadraticSkill",1);
+    document.cookie =  createCookie("evalAddSkill",2);
+    document.cookie =  createCookie("evalSubSkill",4);
     form.submit();
   }
   else{

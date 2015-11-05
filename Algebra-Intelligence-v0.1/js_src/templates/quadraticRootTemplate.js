@@ -3,6 +3,15 @@
  * @constructor
  */
 function QuadraticRootTemplate() {
+    this.category = "quadratic";
+
+  /**
+   * @returns {String} the category of this template, and therefore its questions.
+   */
+    this.getCategory = function(){
+      return this.category;
+    };
+
     /**
      * Generates A quadratic root question and it solution(s).
      * Quadratic Root questions are of the form:
@@ -23,7 +32,7 @@ function QuadraticRootTemplate() {
         var qAnswerInfo = generateAnswerInfo(A,C,R1,R2,skillLevel);
         var qAnswers = qAnswerInfo[0];
         var qCorrectAnswerPos = qAnswerInfo[1];
-        return new Question(qText,qAnswers,qCorrectAnswerPos);
+        return new Question(qText,qAnswers,qCorrectAnswerPos,this.category);
     };
 
   /**

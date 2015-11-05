@@ -1,11 +1,11 @@
 /**
- * Generate a login cookie.
- * @param username The user logging in.
+ * Generate a login
+ * @param param The parameter of this cookie.
+ * @param value The value of this cookie.
  * @return {string} Text for the login cookie.
  */
-var createCookie = function(username){
-  return "username="+username+";";
-
+var createCookie = function(param,value){
+  return param  + "=" + value;
 };
 
 /**
@@ -39,4 +39,4 @@ var checkCookie = function(){
  */
 var deleteCookie = function(){
   return "username=;expires=Thu, 01 Jan 1970 00:00:00 UTC";
-}
+};

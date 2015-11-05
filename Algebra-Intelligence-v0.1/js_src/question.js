@@ -3,10 +3,12 @@
  * @param text The text of the question.
  * @param answers The 4 multiple choice answers to the question.
  * @param correctAnswerPosition The position in the answer array of the correct answer.
+ * @param category The category or subject this question falls under.
  * @constructor
  */
-function Question(text, answers, correctAnswerPosition){
+function Question(text, answers, correctAnswerPosition,category){
     this.text = text;
+    this.category = category;
     this.answers = answers;
     this.correctAnswerPosition = correctAnswerPosition;
 
@@ -16,6 +18,13 @@ function Question(text, answers, correctAnswerPosition){
     this.getCorrectAnswer = function(){
         return ""+this.answers[this.correctAnswerPosition]
     };
+
+  /**
+   * @returns {String} This questions category.
+   */
+    this.getCategory = function(){
+      return category;
+    }
 
     /**
      * Checks if a user given answer is correct.

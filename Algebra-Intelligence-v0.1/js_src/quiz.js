@@ -58,7 +58,8 @@ function Quiz(numQuestions){
         var templates = loadTemplates();
         for(var i = 0; i < this.numQuestions ; i++){
             randInt = random.generateRandomInteger(0,templates.length-1);
-            this.questions.push(templates[randInt].instantiateQuestion(5));
+            var skillCategory = templates[randInt].getCategory() + "Skill";
+            this.questions.push(templates[randInt].instantiateQuestion(parseInt(getCookie(skillCategory))));
         }
     };
 
@@ -72,10 +73,10 @@ function Quiz(numQuestions){
         var templates = [];
         var qt = new QuadraticRootTemplate();
         templates.push(qt);
-        //qt = new EvaluateExpressionAddTemplate();
-       // templates.push(qt);
-        //qt = new EvaluateExpressionSubtractTemplate();
-        //templates.push(qt);
+        qt = new EvaluateExpressionAddTemplate();
+        templates.push(qt);
+        qt = new EvaluateExpressionSubtractTemplate();
+        templates.push(qt);
         //qt = new SolveLinearEquationTemplate();
         //templates.push(qt);
         return templates;
