@@ -77,8 +77,8 @@ function Quiz(numQuestions){
         templates.push(qt);
         qt = new EvaluateExpressionSubtractTemplate();
         templates.push(qt);
-        //qt = new SolveLinearEquationTemplate();
-        //templates.push(qt);
+        qt = new SolveLinearEquationTemplate();
+        templates.push(qt);
         return templates;
     };
 

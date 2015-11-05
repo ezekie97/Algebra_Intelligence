@@ -15,6 +15,7 @@ var validateLogin = function(){
     //hardcoded cookies.
     document.cookie = createCookie("quadraticSkill",1);
     document.cookie =  createCookie("evalAddSkill",2);
+    document.cookie =  createCookie("linearEqSkill",3);
     document.cookie =  createCookie("evalSubSkill",4);
     form.submit();
   }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Algebra-Intelligence-v0.1/js_src/quiz.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Algebra-Intelligence-v0.1/js_src/showRatings.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Algebra-Intelligence-v0.1/js_src/templates/solveLinearEquationTemplate.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Algebra-Intelligence-v0.1/js_src/validateLogin.js" charset="UTF-8" />
+  </component>
+</project>
