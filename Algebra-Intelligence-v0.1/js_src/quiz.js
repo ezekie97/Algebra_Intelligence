@@ -137,11 +137,11 @@ function Quiz(numQuestions){
     var loadTemplates = function(){
       var templates = [];
       var qt = new QuadraticRootTemplate();
-      //templates.push(qt);
-      //qt = new EvaluateExpressionAddTemplate();
-      //templates.push(qt);
-      //qt = new EvaluateExpressionSubtractTemplate();
-      //templates.push(qt);
+      templates.push(qt);
+      qt = new EvaluateExpressionAddTemplate();
+      templates.push(qt);
+      qt = new EvaluateExpressionSubtractTemplate();
+      templates.push(qt);
       qt = new SolveLinearEquationTemplate();
       templates.push(qt);
       return templates;
