@@ -146,7 +146,7 @@ function SolveLinearEquationTemplate() {
         var incorrectAnswerB = (c / a - b).toFixed(2) //(random.generateRandomInteger(-5, 5)).toFixed(2);
         var incorrectAnswerC = (correctAnswer + addNum).toFixed(2); //* (random.generateRandomInteger(-5,5))).toFixed(2);
         correctAnswer = correctAnswer.toFixed(2);
-        var correctAnswerPos = random.generateRandomInteger(0, 4); //0 - 3 (a - d)
+        var correctAnswerPos = random.generateRandomInteger(0, 3); //0 - 3 (a - d)
         switch (correctAnswerPos) {
             case 0:
                 return [[correctAnswer, incorrectAnswerA, incorrectAnswerB, incorrectAnswerC], correctAnswerPos];

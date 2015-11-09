@@ -143,7 +143,7 @@ function EvaluateExpressionSubtractTemplate() {
         incorrectAnswerB = incorrectAnswerB.toFixed(3);
         incorrectAnswerC = incorrectAnswerC.toFixed(3);
       }
-        var correctAnswerPos = random.generateRandomInteger(0,4); //0 - 3 (a - d)
+        var correctAnswerPos = random.generateRandomInteger(0,3); //0 - 3 (a - d)
         switch(correctAnswerPos){
             case 0:
                 return [[correctAnswer,incorrectAnswerA,incorrectAnswerB, incorrectAnswerC],correctAnswerPos];
