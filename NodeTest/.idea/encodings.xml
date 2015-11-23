@@ -14,5 +14,6 @@
     <file url="file://$PROJECT_DIR$/views/ratings.ejs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/views/signout.ejs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/views/signup.ejs" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

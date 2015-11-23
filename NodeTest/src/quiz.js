@@ -9,10 +9,11 @@ var Random = require('./random.js');
  * @param numQuestions The number of questions in this quiz.
  * @constructor
  */
-function Quiz(numQuestions){
+function Quiz(numQuestions,userRatings){
     this.numQuestions = numQuestions;
     this.questions=[];
     this.responses =[]; // user responses, matches with the questions.
+    this.ratings = userRatings;
 
 
     /**
@@ -84,8 +85,10 @@ function Quiz(numQuestions){
         var templates = loadTemplates();
         for(var i = 0; i < this.numQuestions ; i++){
             randInt = random.generateRandomInteger(0,templates.length-1);
-            //var skillCategory = templates[randInt].getCategory() + "Skill";
-            this.questions.push(templates[randInt].instantiateQuestion(5));
+            var currentTemplate = templates[randInt];
+            var category = currentTemplate.getCategory();
+            var skill = this.ratings[category];
+            this.questions.push(templates[randInt].instantiateQuestion(skill));
         }
     };
 

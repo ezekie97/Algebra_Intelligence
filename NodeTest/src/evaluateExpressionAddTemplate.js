@@ -6,7 +6,7 @@ var Random = require('./random.js');
  * @constructor
  */
 function EvaluateExpressionAddTemplate() {
-    this.category = "evalAdd";
+    this.category = "Expressions (Addition)";
 
     /**
      * @returns {String} the category of this template, and therefore its questions.

@@ -4,24 +4,24 @@
  */
 var loadMenuBar = function(isLoggedIn){
   var htmlString = "<ul>";
-  htmlString+= "<li class = 'btn btn-default'><a href='../html/index.html'>Home</a></li>";
-  htmlString+= "<li class = 'btn btn-default'><a href='../html/quiz.html'>Start a Quiz</a></li>";
-  htmlString+= "<li class = 'btn btn-default'> <a href='../html/about.html'>About</a> </li>";
+  htmlString+= "<li class = 'btn btn-default'><a href='/'>Home</a></li>";
+  htmlString+= "<li class = 'btn btn-default'><a href='/quiz'>Start a Quiz</a></li>";
+  htmlString+= "<li class = 'btn btn-default'> <a href='/about'>About</a> </li>";
   htmlString+= "<li class = 'btn btn-default'>";
   if(isLoggedIn){
-    htmlString+=  "<a href='../html/ratings.html'>Your Ratings</a>";
+    htmlString+=  "<a href='/ratings'>Your Ratings</a>";
   }
   else{
-    htmlString+=  "<a href='../html/login.html'>Login</a>";
+    htmlString+=  "<a href='/login'>Login</a>";
   }
 
   htmlString+=  "</li><li class = 'btn btn-default'>";
   if(isLoggedIn){
     // assumes logout.js is pre-loaded.
-    htmlString+= "<a href='../html/signout.html' onclick='logout();'>Logout</a>";
+    htmlString+= "<a href='/signout' onclick='logout();'>Logout</a>";
   }
   else{
-    htmlString+= "<a href='../html/signup.html'>Sign Up</a>";
+    htmlString+= "<a href='/signup'>Sign Up</a>";
   }
   htmlString+= "</li></ul>";
   document.getElementsByClassName('menuBar')[0].innerHTML = htmlString;
@@ -31,7 +31,7 @@ var loadMenuBar = function(isLoggedIn){
  * Load the Algebra Intelligence Logo Area at the top of each page.
  */
 var loadLogoArea = function(){
-  var htmlString = "<h1> <a href='../html/index.html' >ALGEBRA INTELLIGENCE</a></h1>";
+  var htmlString = "<h1> <a href='/' >ALGEBRA INTELLIGENCE</a></h1>";
   document.getElementsByClassName('logo-area')[0].innerHTML = htmlString;
 };
 
@@ -46,9 +46,10 @@ var loadFooter = function(){
 /**
  * Load the Algebra Intelligence Logo Area, Menu, and Footer and
  * display them on an appropriate web page for Algebra Intelligence.
+ * @param isLoggedIn Boolean checking if the user is logged in.
  */
-var loadAll = function(){
+var loadAll = function(isLoggedIn){
   loadLogoArea();
-  loadMenuBar(true);
+  loadMenuBar(isLoggedIn);
   loadFooter();
 };

@@ -1,8 +1,181 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body, html{
+    font-family:"Calibri",Times, serif;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin:0;
+}
+/* Wrapper */
+.wrapper{
+  min-height: 583px;
+  min-width: 1366px;
 }
 
-a {
-  color: #00B7FF;
+/* logo-area */
+.logo-area{
+    background:url("http://www.pageresource.com/wallpapers/wallpaper/math-backgrounds-for-powerpoint-wide.jpg");
+    background-size:cover;
+}
+
+.logo-area h1{
+  text-align:left;
+  margin:0 0 0 25px;
+  padding:0;
+}
+
+.logo-area h1 a{
+  text-decoration:None;
+  color: white;
+}
+
+/* Menu Bar */
+.menuBar{
+    background: black;
+}
+
+.menuBar ul{
+    list-style-type:None;
+    padding: 20px 40px;
+    text-align:center;
+    margin-top: 0;
+    margin-bottom:0;
+}
+
+.menuBar .btn-default{
+    display:inline;
+    text-align:center;
+    padding: 20px 40px;
+    border-radius:20px;
+    transition-duration:0.3s;
+}
+
+.menuBar .btn-default a{
+    text-decoration:none;
+    color: white;
+    padding: 20px 40px;
+}
+
+.menuBar .btn-default:hover{
+    background-color: #E18728;
+}
+
+/* main */
+.main{
+  padding:0;
+  margin:0;
+}
+
+/* main-quiz */
+.main-quiz{
+  background:rgba(51,204,255,0.1);
+  padding:10px 0;
+}
+
+.main-quiz input[type="button"]{
+  margin:25px 0 25px 40%;
+}
+
+.main-quiz input[type="radio"]{
+  /* Edit radio buttons */
+}
+
+/* main-quiz-results */
+.main-quiz-results{
+  background:rgba(51,204,255,0.1);
+  padding:10px 0;
+}
+
+.main-quiz-results h1,h2{
+  text-align:center;
+}
+
+/* main-home */
+.main-home{
+    text-align:center;
+    background-image: url("http://www.uj.edu/wp-content/uploads/2013/05/Math-Landing-Pg-724x320.jpg");
+    background-size:cover;
+    height: 500px;
+    margin-bottom:0;
+}
+
+.main-home h1{
+    font-size:64px;
+    margin:0 0 50px 0;
+    padding:75px 0 0 0;
+    color:#5E5E5E;
+    text-shadow: 2px 2px black;
+}
+
+.main-home .btn-default{
+  text-decoration:None;
+  background:black;
+  color:white;
+  padding: 20px 50px;
+  transition-duration:0.3s;
+  border-radius:20px;
+}
+
+.main-home .btn-default:hover{
+  background:#E18728;
+}
+
+/* Login */
+.login-area form {
+  margin:15% auto 15% auto;
+  width:25%;
+  border:5px black solid;
+  border-radius:10px;
+  text-align:center;
+}
+
+/* Footer */
+.footer {
+  background: black;
+  color: white;
+  bottom: 0;
+  min-height: 31px;
+  padding-bottom: 13px;
+  min-width: 100%;
+  text-align: center;
+}
+
+  /* Misc */
+.correct {
+  background: lightgreen;
+  font-weight:bold;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius:5px;
+  border: 1px solid #4BE34B;
+}
+
+.incorrect{
+  background:darksalmon;
+  font-weight:bold;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius:5px;
+  border: 1px solid #DF643B;
+}
+
+.no-response{
+  background:skyblue;
+  font-weight:bold;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius:5px;
+  border: 1px solid #43B2E0;
+}
+
+.resultQuestion{
+  padding:25px 0 25px 40%;
+}
+
+.quiz-question{
+  padding:25px 0 25px 40%;
+}
+
+.invalid_action {
+    color:red;
+    font-weight:bold;
 }

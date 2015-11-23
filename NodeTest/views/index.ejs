@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel = "stylesheet" type = "text/css" href="style.css">
+    <link rel = "stylesheet" type = "text/css" href="/stylesheets/style.css">
     <!-- Load Javascript Files -->
     <!--<script type="text/javascript" src="../js_src/cookies.js"></script>
     <script type="text/javascript" src="../js_src/pageParts.js"></script>-->
+  <script type="text/javascript" src="/javascripts/pageParts.js"></script>
     <title>Algebra Intelligence | Home</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
     <div class="main">
       <div class ="main-home">
         <h1> Algebra Intelligence</h1>
-        <a class= "btn btn-default" href="login">Start a Quiz Now!</a>
+        <a class= "btn btn-default" href="quiz">Start a Quiz Now!</a>
       </div>
     </div>
   </div>
@@ -28,8 +29,8 @@
   </div>
 
   <!-- Logo Area, Menu, and Footer from Javascript -->
-  <script type="text/javascript">
-    //loadAll();
-  </script>
+<script type="text/javascript">
+  loadAll(<%- login %>);
+</script>
 </body>
 </html>
