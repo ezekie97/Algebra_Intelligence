@@ -38,7 +38,7 @@ var addUser = function(db,user,pass,callback){
                 "Expressions (Addition)":1,
                 "Expressions (Subtraction)": 1,
                 "Quadratic Roots" : 1,
-                "Linear Equation" : 1};
+                "Linear Equations" : 1};
     collection.insertOne(doc);
     callback(true);
 }
