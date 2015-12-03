@@ -2,6 +2,7 @@ var Random = require('./random.js');
 var Question = require('./question.js');
 var Factor = require('./factor.js');
 var Mongo = require('mongodb');
+var Unique = require('uniq');
 
 /**
  * Generate a quiz.
@@ -82,11 +83,16 @@ function Quiz(numQuestions, userRatings) {
      * @param callback a function to perform once the quiz is generated.
      */
     this.generate = function (quiz, callback) {
-        var randInt;
         var random = new Random();
-        loadTemplates(function (templates) {
+        var allCategories = ["Expressions (Addition)", "Expressions (Subtraction)",
+            "Quadratic Roots", "Linear Equations"]
+        var categories = [];
+        for(var i = 0; i < quiz.getNumberOfQuestions();i++){
+            var randInt = random.generateRandomInteger(0, allCategories.length - 1);
+            categories.push(allCategories[randInt]);
+        }
+        loadTemplates(Unique(categories),function (templates) {
             for (var i = 0; i < quiz.getNumberOfQuestions(); i++) {
-                randInt = random.generateRandomInteger(0, templates.length - 1);
                 var currentTemplate = templates[randInt];
                 var category = currentTemplate.getCategory();
                 var skill = quiz.getRatings()[category];
@@ -154,20 +160,25 @@ function Quiz(numQuestions, userRatings) {
      *  loading all templates.
      * @return {*|Array} A list of question templates.
      */
-    var loadTemplates = function (callback) {
+    var loadTemplates = function (categories,callback) {
         var templates = [];
+        var queryOptions = [];
+        // Create an or query for each category added
+        for(var i = 0; i < categories.length; i++){
+            queryOptions.push({"category":categories[i]});
+        }
+        // Do a search for all requested templates.
+        var query = {"$or":queryOptions};
         var url = 'mongodb://localhost:27017/algebra_intelligence';
         Mongo.MongoClient.connect(url, function (err, db) {
             var collection = db.collection('templates');
-            collection.find({}).toArray(function (err, results) {
+            collection.find(query).toArray(function (err, results) {
+                console.log(results);
                 for (var i = 0; i < results.length; i++) {
-                    eval(results[i].source);
+                    var Template = null;
+                    eval("Template = "+results[i].source);
+                    templates.push(new Template());
                 }
-                // templates are in code, begin adding them.
-                templates.push(new EvaluateExpressionAddTemplate());
-                templates.push(new EvaluateExpressionSubtractTemplate());
-                templates.push(new QuadraticRootTemplate());
-                templates.push(new SolveLinearEquationTemplate());
                 callback(templates);
             });
         });
