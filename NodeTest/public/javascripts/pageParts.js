@@ -39,7 +39,8 @@ var loadLogoArea = function(){
  * Load the Algebra Intelligence Footer.
  */
 var loadFooter = function(){
-  var htmlString = "Created By William Ezekiel and Lori Benson, 2015.";
+  var htmlString = "Created By William Ezekiel and Lori Benson, 2015." +
+      "<br/> Images From James University and PageResource.com";
   document.getElementsByClassName("footer")[0].innerHTML = htmlString;
 };
 
