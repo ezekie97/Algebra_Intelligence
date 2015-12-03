@@ -149,7 +149,7 @@ function Quiz(numQuestions, userRatings) {
     };
 
     /**
-     * Populate the array of templates.
+     * Populate the array of necessary templates.
      * @param callback a callback function to perform upon
      *  loading all templates.
      * @return {*|Array} A list of question templates.
@@ -161,7 +161,7 @@ function Quiz(numQuestions, userRatings) {
             var collection = db.collection('templates');
             collection.find({}).toArray(function (err, results) {
                 for (var i = 0; i < results.length; i++) {
-                    eval(results[i].template);
+                    eval(results[i].source);
                 }
                 // templates are in code, begin adding them.
                 templates.push(new EvaluateExpressionAddTemplate());

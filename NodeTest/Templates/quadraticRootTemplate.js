@@ -94,11 +94,15 @@ function QuadraticRootTemplate() {
     var generateText = function (A, B, C) {
         var text = "The quadratic equation ";
         //handle the A term
-        if (A !== 1) {
+        if (Math.abs(A) !== 1) {
             text += A;
         }
-        text += "x<sup>2</sup> ";
-
+        if(A === -1){
+            text += "-x<sup>2</sup> ";
+        }
+        else{
+            text += "x<sup>2</sup> ";
+        }
         //handle the B term
         var op = "+";
         if (B !== 0) {
@@ -300,12 +304,4 @@ function QuadraticRootTemplate() {
     }
 }
 
-// add to database.
-var mongo = require("mongodb");
-var url = 'mongodb://localhost:27017/algebra_intelligence';
-// Use connect method to connect to the Server
-mongo.MongoClient.connect(url, function (err, db) {
-    var collection = db.collection('templates');
-    collection.insertOne({"template": "" + QuadraticRootTemplate});
-    db.close();
-});
+module.exports = QuadraticRootTemplate;

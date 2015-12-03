@@ -106,7 +106,8 @@ function EvaluateExpressionAddTemplate() {
      */
     var generateText = function(x,y,xCoefficient,yCoefficient){
         var text = "For x = " + x + " and y = "+ y + " <br> &nbsp&nbsp&nbsp Evaluate ";
-        text += xCoefficient + "x + "+ yCoefficient + "y";
+        text += (yCoefficient < 0) ? xCoefficient + "x + ("+ yCoefficient + "y)" :
+            xCoefficient + "x + "+ yCoefficient + "y";
         return text;
     };
 
@@ -164,14 +165,6 @@ function EvaluateExpressionAddTemplate() {
     }
 }
 
-// add to database.
-var mongo = require("mongodb");
-var url = 'mongodb://localhost:27017/algebra_intelligence';
-// Use connect method to connect to the Server
-mongo.MongoClient.connect(url, function (err, db) {
-    var collection = db.collection('templates');
-    collection.insertOne({"template": ""+EvaluateExpressionAddTemplate});
-    db.close();
-});
+module.exports = EvaluateExpressionAddTemplate;
 
 
