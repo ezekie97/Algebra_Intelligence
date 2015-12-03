@@ -92,7 +92,7 @@ app.post('/quizResults', function (req, res) {
     var overall = grader.getOverallGrade();
     var htmlString = "<h1> Final Grade: " + overall + "% </h1>";
     var allCategories = quiz.getCategories();
-    updateRanks(req,grader, allCategories, function (html) {
+    updateRanks(req, grader, allCategories, function (html) {
         htmlString += html + quiz.getFinishedQuizHtmlString();
         res.render('quizResults', {quizResults: htmlString});
         res.end();
@@ -100,8 +100,14 @@ app.post('/quizResults', function (req, res) {
 
 });
 
-var updateRanks = function (req,grader, allCategories, callback) {
+var updateRanks = function (req, grader, allCategories, callback) {
     var grades = [];
+    var links = {
+        "Expressions (Addition)": "https://www.mathsisfun.com/algebra/simplify.html",
+        "Expressions (Subtraction)": "https://www.mathsisfun.com/algebra/simplify.html",
+        "Quadratic Roots": "https://www.mathsisfun.com/algebra/quadratic-equation.html",
+        "Linear Equations": "https://www.mathsisfun.com/algebra/equations-solving.html"
+    };
     var htmlString = "";
     for (var i = 0; i < allCategories.length; i++) {
         grades.push(grader.getGradeForCategory(allCategories[i]));
@@ -113,9 +119,14 @@ var updateRanks = function (req,grader, allCategories, callback) {
             var currentSkill = ratingsObj[allCategories[i]];
             var updatedSkill = currentSkill;
             htmlString += "<h2>" + allCategories[i] + " Grade: " + grades[i];
-            if (grades[i] <= 50 && currentSkill > 1) {
-                updatedSkill--;
-                htmlString += "    Your rank in this category has decreased!";
+            if (grades[i] <= 50) {
+                if(currentSkill > 1){
+                    updatedSkill--;
+                    htmlString += "     Your rank in this category has decreased!"
+                }
+                var link = links[allCategories[i]];
+                htmlString += "<br> It looks like you're not doing so well in " + allCategories[i] + ". " +
+                    "For extra help, click <a href=" + link + ">here</a>!";
             }
             if (grades[i] > 80 && currentSkill < 5) {
                 updatedSkill++;
@@ -132,7 +143,9 @@ var updateRanks = function (req,grader, allCategories, callback) {
     })
 };
 
-// User Ratings Page
+/**
+ * User Ratings Page
+ */
 app.get('/ratings', function (req, res) {
     var loggedIn = req.cookies.user !== undefined;
     if (loggedIn) {
@@ -154,7 +167,9 @@ app.get('/ratings', function (req, res) {
     }
 });
 
-// Signup Page
+/**
+ * Signup Page
+ */
 app.get('/signup', function (req, res) {
     var loggedIn = req.cookies.user !== undefined;
     if (loggedIn) {
@@ -183,14 +198,18 @@ app.post('/signup', function (req, res) {
     });
 });
 
-// Signout Page
+/**
+ * Signout Page
+ */
 app.get('/signout', function (req, res) {
     res.clearCookie('user', {});
     res.render('signout');
     res.end();
 });
 
-// Login Page
+/**
+ * Login Page
+ */
 app.post('/login', function (req, res) {
     var username = req.body.user;
     var password = req.body.password;

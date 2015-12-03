@@ -87,20 +87,28 @@ function Quiz(numQuestions, userRatings) {
         var allCategories = ["Expressions (Addition)", "Expressions (Subtraction)",
             "Quadratic Roots", "Linear Equations"]
         var categories = [];
+        var categoriesUnique = [];
         for(var i = 0; i < quiz.getNumberOfQuestions();i++){
             var randInt = random.generateRandomInteger(0, allCategories.length - 1);
             categories.push(allCategories[randInt]);
+            categoriesUnique.push(allCategories[randInt]);
         }
-        loadTemplates(Unique(categories),function (templates) {
+        loadTemplates(Unique(categoriesUnique),function (templates) {
             for (var i = 0; i < quiz.getNumberOfQuestions(); i++) {
-                var currentTemplate = templates[randInt];
+                var Template = null;
+                for(var j = 0; j < templates.length && Template == null; j++){
+                    if(templates[j].category == categories[i]){
+                        eval("Template = "+templates[j].source);
+                    }
+                }
+                var currentTemplate = new Template();
                 var category = currentTemplate.getCategory();
                 var skill = quiz.getRatings()[category];
-                quiz.addQuestion(templates[randInt].instantiateQuestion(skill));
+                quiz.addQuestion(currentTemplate.instantiateQuestion(skill));
+
             }
             callback();
         });
-
     };
 
     /**
@@ -175,9 +183,10 @@ function Quiz(numQuestions, userRatings) {
             collection.find(query).toArray(function (err, results) {
                 console.log(results);
                 for (var i = 0; i < results.length; i++) {
-                    var Template = null;
+                    /*var Template = null;
                     eval("Template = "+results[i].source);
-                    templates.push(new Template());
+                    templates.push(new Template());*/
+                    templates.push(results[i]);
                 }
                 callback(templates);
             });
