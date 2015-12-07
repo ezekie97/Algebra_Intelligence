@@ -57,7 +57,13 @@ function QuadraticRootTemplate() {
                 B = -(R1 + R2);
                 C = R1 * R2;
                 break;
-            case 2: // process is same for cases 2 and 3, fall through if level is 2.
+            case 2:
+                R1 = random.generateRandomNonZeroIntegerInRange(2, 15);
+                R2 = random.generateRandomNonZeroIntegerInRange(2, 15);
+                A = 1;
+                B = -(R1 + R2);
+                C = R1 * R2;
+                break;
             case 3:
                 R1 = random.generateRandomNonZeroIntegerInRange(2, 20);
                 R2 = random.generateRandomNonZeroIntegerInRange(2, 20);

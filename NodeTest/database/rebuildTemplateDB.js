@@ -5,10 +5,10 @@
     to the templates.
  */
 
-var EvaluateExpressionAddTemplate = require('../templates/evaluateExpressionAddTemplate.js');
-var EvaluateExpressionSubtractTemplate = require('../templates/evaluateExpressionSubtractTemplate.js');
-var QuadraticRootTemplate = require('../templates/quadraticRootTemplate.js');
-var SolveLinearEquationTemplate = require('../templates/solveLinearEquationTemplate.js');
+var EvaluateExpressionAddTemplate = require('./templates/evaluateExpressionAddTemplate.js');
+var EvaluateExpressionSubtractTemplate = require('./templates/evaluateExpressionSubtractTemplate.js');
+var QuadraticRootTemplate = require('./templates/quadraticRootTemplate.js');
+var SolveLinearEquationTemplate = require('./templates/solveLinearEquationTemplate.js');
 var Mongo = require("mongodb");
 
 var url = 'mongodb://localhost:27017/algebra_intelligence';
