@@ -5,7 +5,8 @@ var ejs = require('ejs');
 var cookieParser = require('cookie-parser');
 var Quiz = require('./src/quiz.js');
 var LoginModule = require('./src/login.js');
-var SignupModule = require('./src/signup.js');
+var SignUpModule = require('./src/signup.js');
+var SignOutMessages = require('./src/signoutMessages.js');
 var RatingsModule = require('./src/ratings.js');
 var Grader = require('./src/grader.js');
 var mongo = require('mongodb');
@@ -120,7 +121,7 @@ var updateRanks = function (req, grader, allCategories, callback) {
             var updatedSkill = currentSkill;
             htmlString += "<h2>" + allCategories[i] + " Grade: " + grades[i];
             if (grades[i] <= 50) {
-                if(currentSkill > 1){
+                if (currentSkill > 1) {
                     updatedSkill--;
                     htmlString += "     Your rank in this category has decreased!"
                 }
@@ -150,10 +151,10 @@ app.get('/ratings', function (req, res) {
     var loggedIn = req.cookies.user !== undefined;
     if (loggedIn) {
         RatingsModule.getRatings(req.cookies.user, function (ratingsObj) {
-            var htmlString = "";
+            var htmlString = "<table> <tr><th>Category</th><th>Skill Level</th></tr>";
             for (var property in ratingsObj) {
                 if (ratingsObj.hasOwnProperty(property)) {
-                    htmlString += "<p> " + property + " Skill : " + ratingsObj[property] + "</p>";
+                    htmlString += "<tr><td>" + property + "</td><td>" + ratingsObj[property] + "</td></tr>";
                 }
             }
             res.render('ratings', {"username": req.cookies.user.toUpperCase(), "ratings": htmlString});
@@ -184,7 +185,7 @@ app.get('/signup', function (req, res) {
 app.post('/signup', function (req, res) {
     var user = req.body.user;
     var pass = req.body.pass;
-    SignupModule.signup(user, pass, function (msg, success) {
+    SignUpModule.signup(user, pass, function (msg, success) {
         if (success) {
             // log user in
             res.cookie("user", user);
@@ -203,7 +204,8 @@ app.post('/signup', function (req, res) {
  */
 app.get('/signout', function (req, res) {
     res.clearCookie('user', {});
-    res.render('signout');
+    var msg = SignOutMessages.getRandomSignOutMessage();
+    res.render('signout', {"msg":msg});
     res.end();
 });
 

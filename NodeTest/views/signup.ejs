@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-    <!-- Load Javascript Files -->
-    <!--<script type="text/javascript" src="../js_src/cookies.js"></script>-->
+    <!-- Load client-side JavaScript files -->
     <script type="text/javascript" src="/javascripts/pageParts.js"></script>
     <title>Algebra Intelligence | Sign Up</title>
 </head>
 <body>
-<!-- Check if user is logged in before anything else -->
-<!-- Redirect to index page if they are logged in, they shouldn't be here.. -->
-
 <!-- Wrapper -->
 <div class="wrapper">
     <div class="logo-area">
@@ -20,27 +16,26 @@
     </div>
     <div class="main">
         <div class="main-signup">
-            <p>Signup now.</p>
+            <h3>Sign Up Now!</h3>
 
             <form action="/signup" method="post">
-                <p>Your Username: <input type="text" name="user" value=""></p>
+                <p>Your Username: <input type="text" name="user" value=""/></p>
                 <span class="invalid_action"> <%= msg %> </span>
 
-                <p>Your Password: <input type="password" name="pass" value=""></p>
+                <p>Your Password: <input type="password" name="pass" value=""/></p>
 
-                <p><input type="submit"></p>
+                <p><input type="submit"/></p>
             </form>
         </div>
     </div>
-</div>
-
-<!-- Footer -->
-<div class="footer">
+    <!-- Footer -->
+    <div class="footer">
+    </div>
 </div>
 
 <!-- Logo Area, Menu, and Footer from Javascript -->
 <script type="text/javascript">
-    loadAll();
+    loadAll(false);
 </script>
 </body>
 </html>

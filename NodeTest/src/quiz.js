@@ -119,7 +119,7 @@ function Quiz(numQuestions, userRatings) {
         for (var i = 0; i < this.questions.length; i++) {
             htmlString += "<div>" + (i + 1) + ". " + getQuestionHtmlString(this.questions[i], i) + "</div><hr>";
         }
-        htmlString += "<input style='text-align:center;display:inline;' type='submit'> </form>";
+        htmlString += "<input type='submit'/> </form>";
         return htmlString;
     };
 

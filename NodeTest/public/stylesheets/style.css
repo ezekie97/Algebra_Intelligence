@@ -8,8 +8,9 @@ body, html {
 
 /* Wrapper */
 .wrapper {
-    min-height: 583px;
-    min-width: 1366px;
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
 }
 
 /* logo-area */
@@ -60,29 +61,25 @@ body, html {
     background-color: #E18728;
 }
 
-/* main */
+/* Main */
 .main {
     padding: 0;
     margin: 0;
 }
 
-/* main-quiz */
+/* Main - Quiz Page */
 .main-quiz {
-    background: rgba(51, 204, 255, 0.1);
+    background: #f2f2f2;
     padding: 10px 0;
 }
 
-.main-quiz input[type="button"] {
-    margin: 25px 0 25px 40%;
+.main-quiz input[type="submit"] {
+    margin-bottom: 5%;
 }
 
-.main-quiz input[type="radio"] {
-    /* Edit radio buttons */
-}
-
-/* main-quiz-results */
+/* Main - Quiz Results Page */
 .main-quiz-results {
-    background: rgba(51, 204, 255, 0.1);
+    background: #f2f2f2;
     padding: 10px 0;
 }
 
@@ -90,13 +87,12 @@ body, html {
     text-align: center;
 }
 
-/* main-home */
+/* Main- Home Page */
 .main-home {
     text-align: center;
     background-image: url("http://www.uj.edu/wp-content/uploads/2013/05/Math-Landing-Pg-724x320.jpg");
     background-size: cover;
-    height: 500px;
-    margin-bottom: 0;
+    height: 510px;
 }
 
 .main-home h1 {
@@ -120,23 +116,67 @@ body, html {
     background: #E18728;
 }
 
-/* Login */
-.login-area form {
-    margin: 15% auto 15% auto;
-    width: 25%;
-    border: 5px black solid;
-    border-radius: 10px;
+/* Main - About Page */
+.main-about {
     text-align: center;
+    margin: 5% auto auto;
+    width: 80%;
+    background: #f2f2f2;
+    border-radius: 10px;
+    border-style: outset;
+}
+
+/* Main - Ratings Page */
+.main-ratings {
+    text-align: center;
+}
+
+.main-ratings table, th, td {
+    border: 2px solid black;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    border-collapse: collapse;
+    padding:10px 200px;
+}
+
+.main-ratings th{
+    background:#ffbf80;
+}
+
+.main-ratings tr{
+    background:white;
+}
+.main-ratings tr:nth-child(even) {
+    background:#f2f2f2
+}
+
+/* Main - Signout Page */
+.main-signout h1 {
+    text-align: center;
+    margin-top: 25%;
+}
+
+/* Main - Sign Up Page, Main - Login Page*/
+.main-signup, .main-login {
+    text-align: center;
+    background: #f2f2f2;
+    width: 30%;
+    margin-top: 10%;
+    padding-top: 1%;
+    margin-left: 35%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+    border-style: outset;
 }
 
 /* Footer */
 .footer {
-    background: black;
-    color: white;
+    position: absolute;
     bottom: 0;
-    min-height: 31px;
-    padding-bottom: 13px;
-    min-width: 100%;
+    width: 100%;
+    color: white;
+    background: black;
     text-align: center;
 }
 
@@ -173,8 +213,7 @@ body, html {
 }
 
 .quiz {
-    text-align:center;
-    /*padding:25px 0 25px 40%;*/
+    text-align: center;
 }
 
 .invalid_action {

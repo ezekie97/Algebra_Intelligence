@@ -2,36 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel = "stylesheet" type = "text/css" href="/stylesheets/style.css">
-    <!-- Load Javascript Files -->
-    <!--<script type="text/javascript" src="../js_src/cookies.js"></script>
-    <script type="text/javascript" src="../js_src/pageParts.js"></script>-->
-  <script type="text/javascript" src="/javascripts/pageParts.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <!-- Load client-side JavaScript files -->
+    <script type="text/javascript" src="/javascripts/pageParts.js"></script>
     <title>Algebra Intelligence | About</title>
 </head>
 <body>
 <!-- Wrapper -->
 <div class="wrapper">
-  <div class="logo-area">
-  </div>
-  <div class="menuBar">
-  </div>
-  <div class="main">
-    <div class ="main-about">
-      <h1> Algebra Intelligence</h1>
-      <p> Algebra Intelligence is a website with Algebra Quizzes that alter difficulty based on your academic
-      skills.</p>
+    <div class="logo-area">
     </div>
-  </div>
+    <div class="menuBar">
+    </div>
+    <div class="main">
+        <div class="main-about">
+            <h1> Algebra Intelligence</h1>
+
+            <p> Algebra Intelligence aims to help students excel in all topics of algebra. Students are ranked based
+                on their performance on randomly generated quizzes. The difficulty of quiz questions corresponds to
+                the student's performance. Currently, quizzes on Algebra Intelligence consist of only four topics:
+                evaluating algebraic expressions with addition and subtraction, solving quadratic equations, and
+                solving linear equations.
+            </p>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class=footer>
+    </div>
 </div>
 
-<!-- Footer -->
-<div class = footer>
-</div>
 
 <!-- Logo Area, Menu, and Footer from Javascript -->
 <script type="text/javascript">
-  loadAll(<%- login %>);
+    loadAll(<%- login %>);
 </script>
 </body>
 </html>

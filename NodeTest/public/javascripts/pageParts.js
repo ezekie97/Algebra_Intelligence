@@ -9,7 +9,7 @@ var loadMenuBar = function(isLoggedIn){
   htmlString+= "<li class = 'btn btn-default'> <a href='/about'>About</a> </li>";
   htmlString+= "<li class = 'btn btn-default'>";
   if(isLoggedIn){
-    htmlString+=  "<a href='/ratings'>Your Ratings</a>";
+    htmlString+=  "<a href='/ratings'>Your Skill Levels</a>";
   }
   else{
     htmlString+=  "<a href='/login'>Login</a>";

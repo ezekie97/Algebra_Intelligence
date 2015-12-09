@@ -2,49 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel = "stylesheet" type = "text/css" href="/stylesheets/style.css">
-    <!-- Load Javascript Files -->
-    <!--<script type="text/javascript" src="../js_src/cookies.js"></script>
-    <script type="text/javascript" src="../js_src/pageParts.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <!-- Load client-side JavaScript files -->
     <script type="text/javascript" src="/javascripts/pageParts.js"></script>
     <title>Algebra Intelligence | Quiz</title>
 </head>
 <body>
-<!-- Check if user is logged in before anything else -->
-<!-- Redirect to login page if they need to log in. -->
-
 <!-- Wrapper -->
 <div class="wrapper">
-  <div class="logo-area">
-  </div>
-  <div class="menuBar">
-  </div>
-  <div class="main">
-    <div class="main-quiz">
-      <div id="quiz">
-          <%- quizHTML %>
-      </div>
+    <div class="logo-area">
     </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<div class="footer">
+    <div class="menuBar">
+    </div>
+    <div class="main">
+        <div class="main-quiz">
+            <div id="quiz">
+                <%- quizHTML %>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+    </div>
 </div>
 
 <!-- Logo Area, Menu, and Footer from Javascript -->
 <script type="text/javascript">
     loadAll(true);
-  /*//start a 10 question quiz.
-  var nextPage = 'quizDone.html';
-  var checkButtonHtmlString = "<input type='button' value='Complete Quiz' onclick='quiz.getUserAnswers(); " +
-    "nextPage();'>";
-  document.getElementById("quiz").innerHTML += "<p>" + checkButtonHtmlString + "</p>";
-  var nextPage = function(){
-    window.localStorage.setItem("quiz",JSON.stringify(quiz));
-    window.location.replace('quizResults.ejs');
-  };*/
 </script>
-
 </body>
 </html>
