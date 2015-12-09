@@ -20,12 +20,17 @@
 
             <form action="/signup" method="post">
                 <p>Your Username: <input type="text" name="user" value=""/></p>
-                <span class="invalid_action"> <%= msg %> </span>
 
                 <p>Your Password: <input type="password" name="pass" value=""/></p>
 
+                <span class="invalid_action"> <%= msg %> </span>
+
                 <p><input type="submit"/></p>
             </form>
+
+            <p> Username must be 4 or more characters long. </p>
+
+            <p> Password must be 6 or more characters long.</p>
         </div>
     </div>
     <!-- Footer -->

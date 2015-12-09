@@ -23,7 +23,7 @@ function Grader(quiz) {
     };
 
     /**
-     * Get a a grade for a specific category of a quiz. Changes rankings behind the scenes.
+     * Get a a grade for a specific category of a quiz.
      * @param category The category.
      * @returns {Number} The grade for this category.
      */
@@ -41,8 +41,7 @@ function Grader(quiz) {
                 correct += question.checkAnswer(response);
             }
         }
-        var grade = (correct / numQuestionsInCategory) * 100;
-        return grade;
+        return (correct / numQuestionsInCategory) * 100;
     }
 
 }
