@@ -1,0 +1,29 @@
+Algebra Intelligence Setup
+  Preliminary Steps
+    1. If you haven't already, clone the repository from GitHub: https://github.com/ezekie97/Algebra_Intelligence
+    2. Download & Install Node for your OS: https://nodejs.org/en/
+
+    3. --- Mongo Setup ---
+      a. Download and Install MongoDB: https://www.mongodb.org/downloads#production
+      Windows
+        b. Find the directory containing mongod.exe run the following in command prompt
+            (Your director) --dbpath (Path to `data` in Alegbra_Intelligence_v1.1)
+      Mac OSX
+        c. Go the the folder Algebra_Inteligence_v1.1, and call mongod --dbpath data
+        d. The server is up and running!
+
+
+  --- IntelliJ Method (Requires IntelliJ Ultimate) ---
+  Note: If you do not have IntelliJ Ultimate or do not wish to purchase it, please follow 
+    the Node Method instructions.
+    1. Download & Install IntelliJ Ultimate Edition: https://www.jetbrains.com/idea/
+    2. Open the Algebra_Inteligence_v1.1 Project in IntelliJ
+    3. Configure the Node Interpreter for app.js
+    4. Run
+
+  --- Node Method --- (Mac Only)
+    1. On a command line, go to the directory containing app.js
+    2. Run the command " node app.js ".
+
+  Windows Note
+    The link provided by app.js output is incorrect on windows, use localhost:3000 instead.
